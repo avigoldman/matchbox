@@ -2,7 +2,7 @@ import React from 'react';
 import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import TokenTable from '../tokens/TokenTable';
-import { Button, Box } from '@sparkpost/matchbox';
+import { Button, Box, Inline } from '@sparkpost/matchbox';
 
 const SIZES = _.filter(
   meta,
@@ -17,7 +17,7 @@ function Group(props) {
   const { items, selected, onSelect, itemToLabel } = props;
 
   return (
-    <Button.Group>
+    <Inline space="1px">
       {items.map(item => {
         const isSelected = [item.pixel_value, item.value, item.name].includes(
           selected
@@ -28,12 +28,14 @@ function Group(props) {
             key={item.name}
             onClick={() => onSelect(item)}
             outline={!isSelected}
+            color={isSelected ? 'blue' : 'blue'}
+            size="small"
           >
             {itemToLabel ? itemToLabel(item) : item.pixel_value || item.value}
           </Button>
         );
       })}
-    </Button.Group>
+    </Inline>
   );
 }
 
