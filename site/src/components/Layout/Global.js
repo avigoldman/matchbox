@@ -59,7 +59,7 @@ export default `
 
   ul,
   ol {
-    margin-bottom: ${tokens.spacing_500};
+    margin-bottom: ${tokens.spacing_700};
   }
 
   li {
@@ -116,6 +116,12 @@ export default `
     
     pre {
       margin-bottom: ${tokens.spacing_400};
+    }
+
+    ul, ol {
+      ul, ol {
+        margin-bottom: 0;
+      }
     }
   }
 `;
